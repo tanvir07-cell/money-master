@@ -35,3 +35,18 @@ document.getElementById("calculate").addEventListener("click", function (e) {
   rentCostText.value = "";
   clothesCostText.value = "";
 });
+// for saving:
+
+document.getElementById("save-btn").addEventListener("click", function () {
+  const save = document.getElementById("save");
+  const saveAmountText = save.value;
+  const saveAmountValue = parseFloat(saveAmountText);
+
+  //   set the savingAmount:
+  const income = document.getElementById("income");
+  const savingAmount = document.getElementById("saving-amount");
+  savingAmount.textContent = parseFloat(income.value) * (saveAmountValue / 100);
+
+  //   clear the saveField:
+  save.value = "";
+});
