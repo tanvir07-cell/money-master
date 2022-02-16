@@ -1,0 +1,128 @@
+/* universal selector: */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* by default 1rem = 16px ... but I make 1rem = 10px; */
+  font-size: 62.5%;
+}
+
+body {
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  background: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif),
+    linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: 3rem;
+
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+/* for transaction container: */
+
+.transaction-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  min-height: 80vh;
+}
+
+/* selecting image: */
+.transaction-container:first-child {
+  margin-left: 5rem;
+}
+
+/* selecting transaction div: */
+
+.transaction {
+  margin-right: 5rem;
+  background: #eee;
+  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
+  padding: 4rem 8rem;
+}
+
+.income {
+  margin-bottom: 2rem;
+}
+
+label {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: #999;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  padding: 0.5rem;
+  color: #eee;
+  margin-left: 1rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 4rem;
+  margin-left: 6rem;
+  background: #333;
+  padding: 1rem 2rem;
+  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
+  color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-size: 1.7rem;
+}
+
+button:hover {
+  filter: brightness(130%);
+  -webkit-filter: brightness(130%);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+button:active {
+  transform: translate(0, 0.3rem);
+  -webkit-transform: translate(0, 0.3rem);
+  -moz-transform: translate(0, 0.3rem);
+  -ms-transform: translate(0, 0.3rem);
+  -o-transform: translate(0, 0.3rem);
+}
+
+.calculate h3 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
