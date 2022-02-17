@@ -63,14 +63,16 @@ h3 {
 
 .transaction {
   margin-right: 5rem;
-  background: #eee;
-  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
+  /* background: #eee;
+  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65); */
   padding: 4rem 8rem;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .income,
