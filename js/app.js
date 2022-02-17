@@ -16,18 +16,32 @@ function getInputValue() {
   const clothesCostTextValue = clothesCostText.value;
   const clothesCostAmount = parseFloat(clothesCostTextValue);
 
-  //   totalExpense:
-  const totalExpenses = document.getElementById("total-expenses");
+  // for checking when user input the negative value:
+  if (income.value > 0 && clothesCostTextValue > 0 && rentCostTextValue > 0) {
+    //   totalExpense:
+    const totalExpenses = document.getElementById("total-expenses");
+    const totalExpensesValue =
+      foodCostAmount + rentCostAmount + clothesCostAmount;
 
-  totalExpenses.textContent =
-    foodCostAmount + rentCostAmount + clothesCostAmount;
+    totalExpenses.textContent = totalExpensesValue;
 
-  //   totalBalance:
-  const totalBalance = document.getElementById("total-balance");
-  totalBalance.textContent =
-    parseFloat(income.value) - totalExpenses.textContent;
+    //   totalBalance:
 
-  return totalBalance.textContent;
+    const totalBalance = document.getElementById("total-balance");
+
+    totalBalance.textContent =
+      parseFloat(income.value) - totalExpenses.textContent;
+
+    if (totalExpensesValue > income.value) {
+      alert(
+        `You have ${income.value}!  so you don't expense ${totalExpenses.textContent}`
+      );
+      totalExpenses.textContent = "";
+      totalBalance.textContent = "";
+    }
+
+    return totalBalance.textContent;
+  }
 }
 
 // for calculating expenses and income:
@@ -47,15 +61,25 @@ document.getElementById("save-btn").addEventListener("click", function () {
   //   set the savingAmount:
 
   const savingAmount = document.getElementById("saving-amount");
-  savingAmount.textContent = parseFloat(income.value) * (saveAmountValue / 100);
+  const savingAmountValue = parseFloat(income.value) * (saveAmountValue / 100);
+  savingAmount.textContent = savingAmountValue;
 
   // for accessing totalBalance.textContent: using this totalBalanceAmount variable:
 
   const totalBalanceAmount = getInputValue();
-
   // remaining balance:
 
   const remainingBalance = document.getElementById("remaining-balance");
 
   remainingBalance.textContent = totalBalanceAmount - savingAmount.textContent;
+
+  // checking if totalBalance is less then the saving balance:
+
+  if (totalBalanceAmount < savingAmountValue) {
+    alert(
+      `You have less then ${savingAmount.textContent} ! so, you dont't save amount ${saveAmountText}% `
+    );
+    savingAmount.textContent = "";
+    remainingBalance.textContent = "";
+  }
 });
