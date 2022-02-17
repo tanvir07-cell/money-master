@@ -1,6 +1,4 @@
-document.getElementById("calculate").addEventListener("click", function (e) {
-  const income = document.getElementById("income");
-
+function getInputValue() {
   //for expenses:
   const foodCostText = document.getElementById("food");
 
@@ -29,12 +27,16 @@ document.getElementById("calculate").addEventListener("click", function (e) {
   totalBalance.textContent =
     parseFloat(income.value) - totalExpenses.textContent;
 
-  // clear the input fields:
-  //   income.value = "";
-  //   foodCostText.value = "";
-  //   rentCostText.value = "";
-  //   clothesCostText.value = "";
+  return totalBalance.textContent;
+}
+
+// for calculating expenses and income:
+
+document.getElementById("calculate").addEventListener("click", function (e) {
+  const income = document.getElementById("income");
+  getInputValue();
 });
+
 // for saving:
 
 document.getElementById("save-btn").addEventListener("click", function () {
@@ -43,40 +45,17 @@ document.getElementById("save-btn").addEventListener("click", function () {
   const saveAmountValue = parseFloat(saveAmountText);
 
   //   set the savingAmount:
-  const income = document.getElementById("income");
+
   const savingAmount = document.getElementById("saving-amount");
   savingAmount.textContent = parseFloat(income.value) * (saveAmountValue / 100);
 
-  //   totalExpenses:
-  //o /for expenses:
-  const foodCostText = document.getElementById("food");
+  // for accessing totalBalance.textContent: using this totalBalanceAmount variable:
 
-  const foodCostTextValue = foodCostText.value;
+  const totalBalanceAmount = getInputValue();
 
-  const foodCostAmount = parseFloat(foodCostTextValue);
+  // remaining balance:
 
-  const rentCostText = document.getElementById("rent");
-  const rentCostTextValue = rentCostText.value;
-
-  const rentCostAmount = parseFloat(rentCostTextValue);
-
-  const clothesCostText = document.getElementById("clothes");
-
-  const clothesCostTextValue = clothesCostText.value;
-  const clothesCostAmount = parseFloat(clothesCostTextValue);
-
-  //   totalExpense:
-  const totalExpenses = document.getElementById("total-expenses");
-
-  totalExpenses.textContent =
-    foodCostAmount + rentCostAmount + clothesCostAmount;
-
-  const totalBalance = document.getElementById("total-balance");
-  totalBalance.textContent =
-    parseFloat(income.value) - totalExpenses.textContent;
-  console.log(totalBalance);
   const remainingBalance = document.getElementById("remaining-balance");
 
-  remainingBalance.textContent =
-    totalBalance.textContent - savingAmount.textContent;
+  remainingBalance.textContent = totalBalanceAmount - savingAmount.textContent;
 });
